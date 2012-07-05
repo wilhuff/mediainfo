@@ -40,6 +40,7 @@ class MediainfoTest < ActiveSupport::TestCase
     :video_format_settings_matrix,
     :video_codec_id,
     :video_codec_info,
+    :video_codec,
     :video_frame_rate,
     :video_minimum_frame_rate,
     :video_maximum_frame_rate,
@@ -51,6 +52,7 @@ class MediainfoTest < ActiveSupport::TestCase
     :video_encoded_date,
     :video_tagged_date,
     :video_color_primaries,
+    :video_colorspace,
     :video_transfer_characteristics,
     :video_matrix_coefficients,
 

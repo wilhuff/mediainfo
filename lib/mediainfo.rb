@@ -242,7 +242,7 @@ class Mediainfo
     mediainfo_int_reader :resolution
 
     mediainfo_attr_reader :colorimetry
-    alias_method :colorspace, :colorimetry
+    mediainfo_attr_reader :colorspace, "Color Space"
 
     mediainfo_attr_reader :format
     mediainfo_attr_reader :format_info
@@ -261,6 +261,7 @@ class Mediainfo
 
     mediainfo_attr_reader :codec_id, "Codec ID"
     mediainfo_attr_reader :codec_info, "Codec ID/Info"
+    mediainfo_attr_reader :codec, "Codec"
     alias_method :codec_id_info, :codec_info
 
     mediainfo_attr_reader :frame_rate

@@ -147,7 +147,7 @@ class MediainfoAwaywegoTest < ActiveSupport::TestCase
   
   test "video colorimetry" do
     assert_equal "4:2:0", @info.video.colorimetry
-    assert_equal "4:2:0", @info.video.colorspace
+    assert_nil @info.video.colorspace
   end
 
   test "video   Scan type" do

@@ -30,6 +30,19 @@ class MediainfoOurNatureTest < ActiveSupport::TestCase
 
   mediainfo_test_size
 
+  ### VIDEO
+
+  test "Video -> Colorspace" do
+    assert_equal "YUV", @info.video.colorspace
+  end
+
+  test "Video -> Colorimetry" do
+    assert_equal "4:2:0", @info.video.colorimetry
+  end
+
+  test "Video -> Codec" do
+    assert_equal "MPEG-2 Video", @info.video.codec
+  end
   ### IMAGE
   
   mediainfo_test_not_an_image
