@@ -1,3 +1,7 @@
+v0.7.2 New Attribute Support
+- Added support for new General Codec tag
+- Added support for new File Last Modification Date
+
 v0.7.1 Tweakage
 - Removed Mediainfo#parsed_response accessor which always returned nil after
   multi-stream API updates
