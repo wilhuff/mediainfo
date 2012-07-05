@@ -25,7 +25,7 @@ class MediainfoOurNatureTest < ActiveSupport::TestCase
   end
 
   test "File last modification date (local)" do
-    assert_equal "2012-03-19 11:25:29", @info.last_modifiaction_date
+    assert_equal Time.parse("UTC 2012-03-19 10:25:29"), @info.last_modification_date
   end
 
   mediainfo_test_size

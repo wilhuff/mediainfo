@@ -4,6 +4,7 @@ require "mediainfo_test_helper"
 class MediainfoTest < ActiveSupport::TestCase
   supported_attributes = [
     :codec_id,
+    :codec,
     :duration,
     :format,
     :format_profile,
@@ -15,6 +16,7 @@ class MediainfoTest < ActiveSupport::TestCase
     :mastered_date,
     :tagged_date,
     :encoded_date,
+    :last_modification_date,
     
     ### VIDEO
     
