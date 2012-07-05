@@ -239,6 +239,14 @@ class Mediainfo
     def interlaced?;  video? and "Interlaced" == scan_type; end
     def progressive?; video? and not interlaced? end
 
+    mediainfo_attr_reader :bitdepth, "Bit Depth"
+    def bit_depth
+      return unless rate = bitdepth_before_type_cast
+      number = rate.gsub(/[^\d.]+/, "").to_f
+      number.to_i
+    end
+    alias_method :bitdepth, :bit_depth
+
     mediainfo_int_reader :resolution
 
     mediainfo_attr_reader :colorimetry
@@ -330,6 +338,7 @@ class Mediainfo
     mediainfo_attr_reader :format_settings_sign, "Format settings, Sign"
     mediainfo_attr_reader :codec_id, "Codec ID"
     mediainfo_attr_reader :codec_info, "Codec ID/Info"
+    mediainfo_attr_reader :codec, "Codec"
     mediainfo_attr_reader :codec_id_hint
     mediainfo_attr_reader :channel_positions
 

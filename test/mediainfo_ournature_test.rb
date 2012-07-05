@@ -43,6 +43,21 @@ class MediainfoOurNatureTest < ActiveSupport::TestCase
   test "Video -> Codec" do
     assert_equal "MPEG-2 Video", @info.video.codec
   end
+
+  test "Video -> Bit Depth" do
+    assert_equal 8, @info.video.bit_depth
+  end
+ 
+  ### AUDIO
+
+  test "Audio -> Codec" do
+    assert_equal "MPEG-1 Audio layer 2", @info.audio.codec
+  end
+
+  test "Audio -> SamplingRate" do
+    assert_equal 48000, @info.audio.sample_rate
+  end
+
   ### IMAGE
   
   mediainfo_test_not_an_image
