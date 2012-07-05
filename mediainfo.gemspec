@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = "1.8.24"
   s.summary = "Mediainfo is a class wrapping the mediainfo CLI (http://mediainfo.sourceforge.net)"
   s.test_files = ["test/mediainfo_vimeo_test.rb", "test/mediainfo_dinner_test.rb", "test/mediainfo_string_test.rb", "test/mediainfo_broken_embraces_test.rb", "test/mediainfo_test.rb", "test/test_helper.rb", "test/mediainfo_awaywego_test.rb", "test/mediainfo_hats_test.rb", "test/mediainfo_subtilte_test.rb", "test/mediainfo_multiple_streams_test.rb", "test/mediainfo_omen_image_test.rb", "test/mediainfo_ournature_test.rb"]
+  s.signing_key = "/home/steved/.ssh/gem-private_key.pem"
+  s.cert_chain = ["/home/steved/.ssh/gem-public_cert.pem"]
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
