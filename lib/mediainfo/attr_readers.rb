@@ -48,16 +48,27 @@ module AttrReaders
   def mediainfo_duration_reader(*a)
     mediainfo_attr_reader *a do |v|
       t = 0
-      v.split(/\s+/).each do |tf|
-        case tf
-        # XXX haven't actually seen hot they represent hours yet 
-        # but hopefully this is ok.. :\
-        when /\d+h/  then t += tf.to_i * 60 * 60 * 1000
-        when /\d+mn/ then t += tf.to_i * 60 * 1000
-        when /\d+ms/ then t += tf.to_i
-        when /\d+s/  then t += tf.to_i * 1000
-        else
-          raise "unexpected time fragment! please report bug!"
+      if v.include?(":")
+        # If it is like 00:20:30.600
+        splitted = v.split(/:|\./)
+        t = (splitted[0].to_i * 60 * 60 * 1000) + 
+          (splitted[1].to_i * 60 * 1000) + 
+          (splitted[2].to_i * 1000) +
+          (splitted[3].to_i)
+      else
+        # If it is like '20mn 30s 600ms'
+        v.split(/\s+/).each do |tf|
+          case tf
+          # XXX haven't actually seen hot they represent hours yet 
+          # but hopefully this is ok.. :\
+          when /\d+h/  then t += tf.to_i * 60 * 60 * 1000
+          when /\d+mn/ then t += tf.to_i * 60 * 1000
+          when /\d+ms/ then t += tf.to_i
+          when /\d+s/  then t += tf.to_i * 1000
+          else
+            puts "TimeFragment: #{v}"
+            raise "unexpected time fragment! please report bug!"
+          end
         end
       end
       t

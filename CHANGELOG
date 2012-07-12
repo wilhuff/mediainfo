@@ -1,3 +1,8 @@
+v0.7.2.1 Fixed MXF Duration issues
+- MXF file returned "00:02:55.600" as Duration and mxfinfo
+  was unable to parse it, but its fixed and based on test and 
+  fixture
+
 v0.7.2 New Attribute Support
 - Added support for new General Codec tag
 - Added support for new File Last Modification Date
