@@ -112,7 +112,7 @@ class Mediainfo
   # AttrReaders depends on this.
   def self.supported_attributes; @supported_attributes ||= []; end
   
-  SECTIONS             = [:general, :video, :audio, :image, :menu, :text]
+  SECTIONS             = [:general, :video, :audio, :image, :menu, :text, :other]
   NON_GENERAL_SECTIONS = SECTIONS - [:general]
   
   attr_reader :streams
@@ -372,6 +372,11 @@ class Mediainfo
     mediainfo_date_reader :encoded_date
     mediainfo_date_reader :tagged_date
     mediainfo_int_reader :delay
+  end
+
+  class OtherStream < Stream
+    mediainfo_attr_reader :stream_id, "ID"
+    mediainfo_attr_reader :type
   end
   
   Mediainfo::SECTIONS.each do |stream_type|
