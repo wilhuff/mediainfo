@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mediainfo version="0.7.64">
+<File>
+<track type="General">
+<ID>1 (0x1)</ID>
+<Complete_name>hdv transport stream.m2t</Complete_name>
+<Format>MPEG-TS</Format>
+<Commercial_name>HDV 1080i</Commercial_name>
+<File_size>21.2 MiB</File_size>
+<Duration>6s 573ms</Duration>
+<Start_time>UTC 2000-00-00 00:00:00</Start_time>
+<End_time>UTC 2000-00-00 00:00:00</End_time>
+<Overall_bit_rate_mode>Constant</Overall_bit_rate_mode>
+<Overall_bit_rate>27.0 Mbps</Overall_bit_rate>
+<Encoded_date>UTC 2000-00-00 00:00:00</Encoded_date>
+</track>
+
+<track type="Video">
+<ID>2064 (0x810)</ID>
+<Menu_ID>100 (0x64)</Menu_ID>
+<Format>MPEG Video</Format>
+<Commercial_name>HDV 1080i</Commercial_name>
+<Format_version>Version 2</Format_version>
+<Format_profile>Main@High 1440</Format_profile>
+<Format_settings__BVOP>Yes</Format_settings__BVOP>
+<Format_settings__Matrix>Custom</Format_settings__Matrix>
+<Format_settings__GOP>Variable</Format_settings__GOP>
+<Codec_ID>2</Codec_ID>
+<Duration>6s 360ms</Duration>
+<Bit_rate>25.3 Mbps</Bit_rate>
+<Maximum_bit_rate>25.0 Mbps</Maximum_bit_rate>
+<Width>1 440 pixels</Width>
+<Height>1 080 pixels</Height>
+<Display_aspect_ratio>16:9</Display_aspect_ratio>
+<Frame_rate>25.000 fps</Frame_rate>
+<Standard>PAL</Standard>
+<Color_space>YUV</Color_space>
+<Chroma_subsampling>4:2:0</Chroma_subsampling>
+<Bit_depth>8 bits</Bit_depth>
+<Scan_type>Interlaced</Scan_type>
+<Scan_order>Top Field First</Scan_order>
+<Compression_mode>Lossy</Compression_mode>
+<Bits__Pixel_Frame_>0.650</Bits__Pixel_Frame_>
+<Time_code_of_first_frame>00:00:00:00</Time_code_of_first_frame>
+<Time_code_source>Group of pictures header</Time_code_source>
+<Stream_size>19.2 MiB (90%)</Stream_size>
+<Color_primaries>BT.709</Color_primaries>
+<Transfer_characteristics>BT.709</Transfer_characteristics>
+<Matrix_coefficients>BT.709</Matrix_coefficients>
+</track>
+
+<track type="Audio">
+<ID>2068 (0x814)</ID>
+<Menu_ID>100 (0x64)</Menu_ID>
+<Format>MPEG Audio</Format>
+<Format_version>Version 1</Format_version>
+<Format_profile>Layer 2</Format_profile>
+<Codec_ID>3</Codec_ID>
+<Duration>6s 360ms</Duration>
+<Bit_rate_mode>Constant</Bit_rate_mode>
+<Bit_rate>384 Kbps</Bit_rate>
+<Channel_count>2 channels</Channel_count>
+<Sampling_rate>48.0 KHz</Sampling_rate>
+<Compression_mode>Lossy</Compression_mode>
+<Stream_size>298 KiB (1%)</Stream_size>
+</track>
+
+<track type="Menu">
+<ID>129 (0x81)</ID>
+<Menu_ID>100 (0x64)</Menu_ID>
+<List>2064 (0x810) (MPEG Video) / 2068 (0x814) (MPEG Audio) / 2069 (0x815) () / 2065 (0x811) ()</List>
+</track>
+
+</File>
+</Mediainfo>
+

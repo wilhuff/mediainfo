@@ -76,7 +76,16 @@ module AttrReaders
   end
   
   def mediainfo_date_reader(*a)
-    mediainfo_attr_reader(*a) { |v| Time.parse v }
+    # Mediainfo can return wrong timestamps, so we have to correct them before
+    # we let ruby try to parse.
+    # Also we now catch exceptions.
+    mediainfo_attr_reader(*a) do |v|
+      begin
+        Time.parse(v.gsub('-00', '-01'))
+      rescue
+        Time.now
+      end
+    end
   end
   
   def mediainfo_int_reader(*a)
