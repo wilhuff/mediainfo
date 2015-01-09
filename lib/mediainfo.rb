@@ -112,7 +112,7 @@ class Mediainfo
   # AttrReaders depends on this.
   def self.supported_attributes; @supported_attributes ||= []; end
   
-  SECTIONS             = [:general, :video, :audio, :image, :menu, :text]
+  SECTIONS             = [:general, :video, :audio, :image, :menu, :text, :other]
   NON_GENERAL_SECTIONS = SECTIONS - [:general]
   
   attr_reader :streams
@@ -210,6 +210,7 @@ class Mediainfo
     mediainfo_attr_reader :format
     mediainfo_attr_reader :format_profile
     mediainfo_attr_reader :format_info
+    mediainfo_attr_reader :codec, "Codec"
     mediainfo_attr_reader :overall_bit_rate
     mediainfo_attr_reader :writing_application
     mediainfo_attr_reader :writing_library
@@ -217,6 +218,7 @@ class Mediainfo
     mediainfo_date_reader :mastered_date
     mediainfo_date_reader :tagged_date
     mediainfo_date_reader :encoded_date
+    mediainfo_date_reader :last_modification_date, "File last modification date"
   end
   
   class VideoStream < Stream
@@ -237,10 +239,18 @@ class Mediainfo
     def interlaced?;  video? and "Interlaced" == scan_type; end
     def progressive?; video? and not interlaced? end
 
+    mediainfo_attr_reader :bitdepth, "Bit Depth"
+    def bit_depth
+      return unless rate = bitdepth_before_type_cast
+      number = rate.gsub(/[^\d.]+/, "").to_f
+      number.to_i
+    end
+    alias_method :bitdepth, :bit_depth
+
     mediainfo_int_reader :resolution
 
     mediainfo_attr_reader :colorimetry
-    alias_method :colorspace, :colorimetry
+    mediainfo_attr_reader :colorspace, "Color Space"
 
     mediainfo_attr_reader :format
     mediainfo_attr_reader :format_info
@@ -259,6 +269,7 @@ class Mediainfo
 
     mediainfo_attr_reader :codec_id, "Codec ID"
     mediainfo_attr_reader :codec_info, "Codec ID/Info"
+    mediainfo_attr_reader :codec, "Codec"
     alias_method :codec_id_info, :codec_info
 
     mediainfo_attr_reader :frame_rate
@@ -327,6 +338,7 @@ class Mediainfo
     mediainfo_attr_reader :format_settings_sign, "Format settings, Sign"
     mediainfo_attr_reader :codec_id, "Codec ID"
     mediainfo_attr_reader :codec_info, "Codec ID/Info"
+    mediainfo_attr_reader :codec, "Codec"
     mediainfo_attr_reader :codec_id_hint
     mediainfo_attr_reader :channel_positions
 
@@ -360,6 +372,11 @@ class Mediainfo
     mediainfo_date_reader :encoded_date
     mediainfo_date_reader :tagged_date
     mediainfo_int_reader :delay
+  end
+
+  class OtherStream < Stream
+    mediainfo_attr_reader :stream_id, "ID"
+    mediainfo_attr_reader :type
   end
   
   Mediainfo::SECTIONS.each do |stream_type|
@@ -462,7 +479,7 @@ class Mediainfo
   
   private
   def mediainfo!
-    @last_command = "#{path} #{@escaped_full_filename} --Output=XML"
+    @last_command = "#{path} #{@escaped_full_filename} -f --Output=XML"
     run_command!
   end
   

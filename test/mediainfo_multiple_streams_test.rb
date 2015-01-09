@@ -164,7 +164,7 @@ class MediainfoMultipleStreamsTest < ActiveSupport::TestCase
   
   test "video 1 colorimetry" do
     assert_equal "4:2:0", @info.video[0].colorimetry
-    assert_equal "4:2:0", @info.video[0].colorspace
+    assert_nil @info.video[0].colorspace
   end
 
   test "video 1   Scan type" do
@@ -275,7 +275,7 @@ class MediainfoMultipleStreamsTest < ActiveSupport::TestCase
   
   test "video 2 colorimetry" do
     assert_equal "4:2:0", @info.video[1].colorimetry
-    assert_equal "4:2:0", @info.video[1].colorspace
+    assert_nil @info.video[1].colorspace
   end
 
   test "video 2   Scan type" do

@@ -70,15 +70,18 @@ should at least return `nil`.
 This requires at least the following version of the Mediainfo CLI:
   
     MediaInfo Command line,
-    MediaInfoLib - v0.7.25
+    MediaInfoLib - v0.7.58
   
 Previous versions of this gem(<= 0.5.1) worked against v0.7.11, which did not 
 generate XML output, and is no longer supported.
 
 ## Contributors
 
+This is a fork of [https://github.com/greatseth/mediainfo](https://github.com/greatseth/mediainfo) and because it seems that greatseth is now longer maintainig the project, I will continue development.
+
 * Seth Thomas Rasmussen - [http://greatseth.com](http://greatseth.com)
 * Peter Vandenberk      - [http://github.com/pvdb](http://github.com/pvdb)
 * Ned Campion           - [http://github.com/nedcampion](http://github.com/nedcampion)
 * Daniel Jagszent       - [http://github.com/d--j](http://github.com/d--j)
 * Robert Mrasek         - [http://github.com/derobo](http://github.com/derobo)
+* Steve Dierker         - [http://github.com/bigzed](http://github.com/bigzed)
