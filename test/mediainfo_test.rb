@@ -102,7 +102,28 @@ class MediainfoTest < ActiveSupport::TestCase
     :text_codec_id,
     :text_codec_info,
     :text_format,
-    :text_stream_id
+    :text_stream_id,
+
+    ### OTHER
+    :other_stream_id,
+    :other_type,
+    :other_language,
+    :other_duration,
+    :other_stream_size,
+    :other_bit_rate,
+    :other_bit_rate_mode,
+    :other_format,
+    :other_format_profile,
+    :other_format_version,
+    :other_format_info,
+    :other_codec_id,
+    :other_codec_info,
+    :other_codec_id_hint,
+    :other_encoded_date,
+    :other_tagged_date,
+    :other_source_duration,
+    :other_source_frame_count,
+    :other_source_stream_size,
   ]
   
   Mediainfo.supported_attributes.each do |attribute|
