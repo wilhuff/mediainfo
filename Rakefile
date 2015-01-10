@@ -19,9 +19,9 @@ end
 
 Echoe.new "mediainfo" do |p|
   p.description = p.summary = "Mediainfo is a class wrapping the mediainfo CLI (http://mediainfo.sourceforge.net)"
-  p.author = "Seth Thomas Rasmussen"
-  p.email = "sethrasmussen@gmail.com"
-  p.url = "http://greatseth.github.com/mediainfo"
+  p.author = ["Seth Thomas Rasmussen", "Steve Dierker"]
+  p.email = "steve.dierker@flavoursys.com"
+  p.url = "https://github.com/FlavourSys/mediainfo"
   p.ignore_pattern = %w( test/**/* )
   p.retain_gemspec = true
   p.honor_gitignore!
