@@ -560,6 +560,6 @@ class Mediainfo
   end
   
   def key_for(attribute_node)
-    attribute_node.name.downcase.gsub(/_+/, "_").gsub(/_s(\W|$)/, "s").strip
+    attribute_node.name.downcase.gsub(/_+/, "_").gsub(/_s(\W|$)/, "s").strip.gsub(/_$/, '')
   end
 end
